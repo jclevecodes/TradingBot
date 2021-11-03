@@ -18,7 +18,7 @@ def real_time_price(stock_code):
     try:
         r = requests.get(url)
         web_content = BeautifulSoup(r.text, 'lxml')
-        texts = web_content_div(web_content, 'My(6px) Pos(r) smartphone_Mt(6px)')
+        texts = web_content_div(web_content, 'My(6px) Pos(r) smartphone_Mt(6px) W(100%)')
         if texts != []:
             price = texts[0]
             change = texts[1]
@@ -26,7 +26,8 @@ def real_time_price(stock_code):
             price = []
             change = []
     except ConnectionError:
-        price, change = [], []
+        price = []
+        change = []
     return price, change
 
 Stock = ['NVDA']
