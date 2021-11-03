@@ -23,7 +23,8 @@ def real_time_price(stock_code):
             price = texts[0]
             change = texts[1]
         else:
-            price, change = [], []
+            price = []
+            change = []
     except ConnectionError:
         price, change = [], []
     return price, change
